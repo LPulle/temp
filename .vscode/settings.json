@@ -1,0 +1,16 @@
+{
+    "jupyter.kernels.filter": [
+        {
+            "path": "~\\AppData\\Local\\Microsoft\\WindowsApps\\python3.8.exe",
+            "type": "pythonEnvironment"
+        },
+        {
+            "path": "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.8_3.8.2800.0_x64__qbz5n2kfra8p0\\python3.8.exe",
+            "type": "pythonEnvironment"
+        },
+        {
+            "path": "~\\AppData\\Local\\Microsoft\\WindowsApps\\python3.9.exe",
+            "type": "pythonEnvironment"
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+# Updates
+sudo apt update -y
+sudo apt full-upgrade -y
+sudo apt autoremove -y
+sudo do-release-upgrade
+
+# Testing fresh ubuntu install updates
+sudo apt -y install git
+sudo apt -y autoremove
+mkdir -p GitHub
+cd ~/GitHub
+git clone http://www.github.com/lpulle/Linux.git
+git clone http://www.github.com/lpulle/temp.git
+Linux/migrateinstall/ubuntu/ubuntumigrate.sh
+#replace prompt=lts with prompt=normal in the below as wsl install lts by default:
+sudo nano /etc/update-manager/release-upgrades
+
+# manually installing npm modules
+sudo npm install nodejs
+sudo npm install http-server
+sudo npm install npm-debug.log
+sudo npm install typescript
+sudo npm install xml2json-command
+
+#Reference
+#https://askubuntu.com/a/663658
+
+export DISPLAY=localhost:0.0
+sudo apt install ubuntu-desktop -y
+sudo apt install xfce4 xorg xrdp -y
+sudo sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
+#cd /home/user/
+sudo nano ~/.xsession
+
+add and save:
+gnome-session --session=ubuntu-2d
+
+sudo chmod 755 ~/.xsession
+sudo systemctl enable xrdp
+sudo adduser remote #create a password
+sudo usermod -aG sudo remote
+
+#cd /etc/xrdp
+sudo chmod 777 /etc/xrdp/startwm.sh
+nano /etc/xrdp/startwm.sh
+
+comment these lines:
+#test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+#exec /bin/sh /etc/X11/Xsession
+
+add this line and save:
+startxfce4
+
+sudo /etc/init.d/xrdp start
+
+#In Windows run mstsc.exe
+#Computer: 127.0.0.1:3390
+#Leave username blank
+#Connect
+
+#Login
+#Session: Xorg
+#username: remote
+#password: password
+
+#when done
+#sudo /etc/init.d/xrdp stop
+#exit
